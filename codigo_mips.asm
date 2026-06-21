@@ -46,7 +46,7 @@ msg_newline:        .asciiz "\n"
 
 .text
 .globl main
-# Função main: responsável pela inicialização do sistema e execução contínua do programa.
+# FunÃ§Ã£o main: responsÃ¡vel pela inicializaÃ§Ã£o do sistema e execuÃ§Ã£o contÃ­nua do programa.
 main:
     li $v0, 4
     la $a0, msg_inicio
@@ -72,20 +72,20 @@ loop_principal:
     li $a0, 50
     syscall
     j loop_principal
-# Função update_timestamp: atualiza o contador de tempo utilizado para controlar movimentação e abertura das portas.
+# FunÃ§Ã£o update_timestamp: atualiza o contador de tempo utilizado para controlar movimentaÃ§Ã£o e abertura das portas.
 update_timestamp:
     lw $t0, timestampGlobal
     addi $t0, $t0, 1
     sw $t0, timestampGlobal
     jr $ra
-# Função abs_diferenca: calcula o valor absoluto da diferença entre dois ângulos.
+# FunÃ§Ã£o abs_diferenca: calcula o valor absoluto da diferenÃ§a entre dois Ã¢ngulos.
 abs_diferenca:
     sub $v0, $a0, $a1
     bgez $v0, abs_fim
     sub $v0, $zero, $v0
 abs_fim:
     jr $ra
-# Função ler_botoes: realiza a leitura dos comandos do usuário e encaminha cada solicitação para a cabine adequada.
+# FunÃ§Ã£o ler_botoes: realiza a leitura dos comandos do usuÃ¡rio e encaminha cada solicitaÃ§Ã£o para a cabine adequada.
 ler_botoes:
     subi $sp, $sp, 4
     sw $ra, 0($sp)
@@ -153,7 +153,7 @@ fim_leitura:
     lw $ra, 0($sp)
     addi $sp, $sp, 4
     jr $ra
-# Função processar_chamada_corredor: define qual cabine atenderá uma chamada externa com base na proximidade. 
+# FunÃ§Ã£o processar_chamada_corredor: define qual cabine atenderÃ¡ uma chamada externa com base na proximidade. 
 processar_chamada_corredor:
     subi $sp, $sp, 12
     sw $ra, 0($sp)
@@ -237,7 +237,7 @@ fim_corredor:
     lw $ra, 0($sp)
     addi $sp, $sp, 12
     jr $ra
-# Função processar_chamada_cabine1: registra chamadas internas da Cabine 1.
+# FunÃ§Ã£o processar_chamada_cabine1: registra chamadas internas da Cabine 1.
 processar_chamada_cabine1:
     subi $sp, $sp, 8
     sw $ra, 0($sp)
@@ -271,7 +271,7 @@ fim_chamada_c1:
     lw $ra, 0($sp)
     addi $sp, $sp, 8
     jr $ra
-# Função processar_chamada_cabine2: registra chamadas internas da Cabine 2.
+# FunÃ§Ã£o processar_chamada_cabine2: registra chamadas internas da Cabine 2.
 processar_chamada_cabine2:
     subi $sp, $sp, 8
     sw $ra, 0($sp)
@@ -305,7 +305,7 @@ fim_chamada_c2:
     lw $ra, 0($sp)
     addi $sp, $sp, 8
     jr $ra
-# Função processar_cabine1: controla todos os estados operacionais da Cabine 1.
+# FunÃ§Ã£o processar_cabine1: controla todos os estados operacionais da Cabine 1.
 processar_cabine1:
     subi $sp, $sp, 4
     sw $ra, 0($sp)
@@ -466,7 +466,7 @@ fim_cabine1:
     lw $ra, 0($sp)
     addi $sp, $sp, 4
     jr $ra
-# Função processar_cabine2: controla todos os estados operacionais da Cabine 2.
+# FunÃ§Ã£o processar_cabine2: controla todos os estados operacionais da Cabine 2.
 processar_cabine2:
     subi $sp, $sp, 4
     sw $ra, 0($sp)
@@ -627,7 +627,7 @@ fim_cabine2:
     lw $ra, 0($sp)
     addi $sp, $sp, 4
     jr $ra
-# Funções tem_chamada_acima e tem_chamada_abaixo verificam a existência de solicitações pendentes acima ou abaixo da posição atual das cabines.
+# FunÃ§Ãµes tem_chamada_acima e tem_chamada_abaixo verificam a existÃªncia de solicitaÃ§Ãµes pendentes acima ou abaixo da posiÃ§Ã£o atual das cabines.
 tem_chamada_acima1:
     lw $t0, andarAtual1
     addi $t0, $t0, 1
